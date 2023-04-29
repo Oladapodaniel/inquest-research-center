@@ -40,7 +40,7 @@
                 <div class="flex flex-wrap items-center mt-4">
                     <img src="../../assets/images/ic_outline-language.svg" class="inline-block mr-1" />
                     <span>English(UK)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <img src="../../assets/images/Pound (GBP).svg" class="inline-block mr-1" />
+                    <img src="../../assets/images/Pound.svg" class="inline-block mr-1" />
                     <span>Pounds</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <img src="../../assets/images/facebook-square.svg" />&nbsp;&nbsp;
                     <img src="../../assets/images/twitter-square.svg" />&nbsp;&nbsp;
