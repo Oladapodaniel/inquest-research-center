@@ -2,7 +2,7 @@
     <div class="bg-bluetint dark:bg-neutral-700 pb-12">
         <div class="container-fluid">
             <div class="grid md:grid-cols-3 gap-12 items-center">
-                <div class="col-span-3 md:col-span-1 text-neutral-500 dark:text-neutral-50">
+                <div class="col-span-3 md:col-span-1 text-neutral-500 dark:text-neutral-50" data-aos="flip-down" data-aos-duration="2000">
                     <img src="../../assets/images/smiling_man.png"
                     class="w-[150px] md:w-[400px] md:h-[300] rounded-full md:rounded-3xl relative bottom-[-100px] left-[100px]  md:bottom-[0px] md:left-[70px] xl:left-[150px]" />
                    

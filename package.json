@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@duskmoon/vue3-typed-js": "^0.0.4",
+    "aos": "^3.0.0-beta.6",
     "tw-elements": "^1.0.0-beta2",
     "vue": "^3.2.47",
     "vue3-signature": "^0.2.2"

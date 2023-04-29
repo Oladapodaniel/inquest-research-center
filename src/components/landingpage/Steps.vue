@@ -14,12 +14,12 @@
                         facilisis volutpat. feugiat ipsum consequat.
                     </p>
                 </div>
-                <div class="col-span-3 md:col-span-1 flex justify-center">
+                <div class="col-span-3 md:col-span-1 flex justify-center" data-aos="fade-down-left" data-aos-duration="1000">
                     <img src="../../assets/images/Fillout-pana.svg" />
                 </div>
             </div>
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="col-span-3 md:col-span-1 order-last md:order-first flex justify-center">
+                <div class="col-span-3 md:col-span-1 order-last md:order-first flex justify-center" data-aos="fade-down-right" data-aos-duration="1000">
                     <img src="../../assets/images/Bloodtest-cuate.svg" />
                 </div>
                 <div class="col-span-3 md:col-span-1 text-neutral-500 dark:text-neutral-50">
@@ -37,7 +37,7 @@
                         facilisis volutpat. feugiat ipsum consequat.
                     </p>
                 </div>
-                <div class="col-span-3 md:col-span-1 flex justify-center">
+                <div class="col-span-3 md:col-span-1 flex justify-center" data-aos="fade-down-left" data-aos-duration="1000">
                     <img src="../../assets/images/Forms-cuate.svg" />
                 </div>
             </div>

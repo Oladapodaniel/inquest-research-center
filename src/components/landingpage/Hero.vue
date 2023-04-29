@@ -3,9 +3,12 @@
         <div class="md:container px-5 py-12">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="col-span-2 md:col-span-1">
-                    <h1
+                    <Typed :options="options">
+                        <h1 class="typing"></h1>
+                    </Typed>
+                    <!-- <h1
                         class="inter-semi-bold leading-snug text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-sky-300 to-sky-500">
-                        In-House Clinical Research with Inquest Research Centre</h1>
+                        In-House Clinical Research with Inquest Research Centre</h1> -->
                     <div class="dark:text-neutral-50">Fast & quick research web platform for institutes and more.</div>
                     <router-link to="/clinicalresearchapplicationform">
                         <button type="button" data-te-ripple-init data-te-ripple-color="light"
@@ -15,7 +18,7 @@
                     </router-link>
                 </div>
                 <div class="col-span-2 md:col-span-1">
-                    <div class="flex justify-center md:justify-end">
+                    <div class="flex justify-center md:justify-end" data-aos="fade-left" data-aos-duration="2000">
                         <img src="../../assets/images/researcher-cuate.svg" class="w-80" />
                     </div>
                 </div>
@@ -24,4 +27,14 @@
     </div>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+import { Typed } from "@duskmoon/vue3-typed-js";
+import type { TypedOptions } from "@duskmoon/vue3-typed-js";
+
+const options: TypedOptions = {
+    strings: ["<h1 class='inter-semi-bold leading-snug text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-sky-300 to-sky-500'>Hello</h1>", "<h1 class='inter-semi-bold leading-snug text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-sky-300 to-sky-500'>Welcome</h1>", "<h1 class='inter-semi-bold leading-snug text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-sky-300 to-sky-500'>In-House Clinical Research with Inquest Research Centre</h1>",],
+    loop: true,
+    typeSpeed: 40,
+};
+
+</script>

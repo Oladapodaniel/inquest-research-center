@@ -15,57 +15,62 @@
                             <div class="grid md:grid-cols-2 md:gap-7 items-center">
                                 <div class="col-span-2 md:col-span-1 text-neutral-500 dark:text-neutral-50">
                                     <!-- First Name input -->
+                                    <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">First Name</p>
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="text"
                                             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                             id="exampleFormControlInput3" placeholder="First Name" />
-                                        <label for="exampleFormControlInput3"
+                                        <!-- <label for="exampleFormControlInput3"
                                             class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">First
                                             Name
-                                        </label>
+                                        </label> -->
                                     </div>
                                 </div>
                                 <div class="col-span-2 md:col-span-1 text-neutral-500 dark:text-neutral-50">
                                     <!-- Last name input -->
+                                    <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Last Name</p>
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="text"
                                             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                             id="exampleFormControlInput3" placeholder="Last Name" />
-                                        <label for="exampleFormControlInput3"
+                                        <!-- <label for="exampleFormControlInput3"
                                             class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Last
                                             Name
-                                        </label>
+                                        </label> -->
                                     </div>
                                 </div>
                             </div>
                             <!-- Email input -->
+                            <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Email address</p>
                             <div class="relative mb-6" data-te-input-wrapper-init>
                                 <input type="text"
                                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                     id="exampleFormControlInput3" placeholder="Email address" />
-                                <label for="exampleFormControlInput3"
+                                <!-- <label for="exampleFormControlInput3"
                                     class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Email
                                     address
-                                </label>
+                                </label> -->
                             </div>
 
                             <!-- Gender select -->
+                            <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Gender</p>
                             <div class="mb-6">
                                 <select data-te-select-init data-te-select-size="lg">
                                     <option value="1">Male</option>
                                     <option value="2">Female</option>
                                 </select>
-                                <label data-te-select-label-ref>Gender</label>
+                                <!-- <label data-te-select-label-ref>Gender</label> -->
                             </div>
 
                             <!-- Password input -->
+                            <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Password</p>
                             <div class="relative mb-6" data-te-input-wrapper-init>
                                 <input type="password"
                                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                     id="exampleFormControlInput33" placeholder="Password" />
-                                <label for="exampleFormControlInput33"
+                                <!-- <label for="exampleFormControlInput33"
                                     class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Password
-                                </label>
+                                </label> -->
                             </div>
 
                             <!-- Button -->
