@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
 import './style.css'
 import './theme'
 import Vue3Signature from "vue3-signature"
-import routes from './index'
+import router from './index'
 import App from './App.vue'
+import Notifications from '@kyvg/vue3-notification'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
@@ -30,11 +30,10 @@ AOS.init({
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
   
   });
+  import VueApexCharts from "vue3-apexcharts"
 
 
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes: routes
-})
-createApp(App).use(router).use(Vue3Signature).mount('#app')
+
+
+createApp(App).use(Notifications).use(router).use(Vue3Signature).use(VueApexCharts).mount('#app')

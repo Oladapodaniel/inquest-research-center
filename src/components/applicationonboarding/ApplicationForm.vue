@@ -11,40 +11,37 @@
             </p>
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Full Name</p>
             <div class="relative mb-4 " data-te-input-wrapper-init>
-                <input type="text"
+                <input type="text" v-model="form.full_name" @input="emitData"
                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                     id="exampleFormControlInput3" placeholder="Full Name" />
             </div>
 
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Date of birth</p>
             <div class="relative mb-3" data-te-datepicker-init data-te-input-wrapper-init>
-                <input type="text"
+                <input type="text"  v-model="form.date_of_birth" @input="emitData"
                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                     placeholder="Select a date" />
-                <!-- <label for="floatingInput"
-                            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Select
-                            a date</label> -->
             </div>
 
             <div class="text-neutral-500 dark:text-neutral-50 text-sm inter-medium my-6">Contact information</div>
 
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Email</p>
             <div class="relative mb-4 " data-te-input-wrapper-init>
-                <input type="text"
+                <input type="text" v-model="form.email" @input="emitData"
                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                     id="exampleFormControlInput3" placeholder="Email" />
             </div>
 
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Phone number</p>
             <div class="relative mb-4 " data-te-input-wrapper-init>
-                <input type="text"
+                <input type="text" v-model="form.phone_number" @input="emitData"
                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                     id="exampleFormControlInput3" placeholder="Phone number" />
             </div>
 
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Address</p>
             <div class="relative mb-4 " data-te-input-wrapper-init>
-                <input type="text"
+                <input type="text" v-model="form.address" @input="emitData"
                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                     id="exampleFormControlInput3" placeholder="Address" />
             </div>
@@ -53,7 +50,7 @@
                 <div class="col-span-2 md:col-span-1 text-neutral-500 dark:text-neutral-50">
                     <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">City</p>
                     <div class="relative mb-4" data-te-input-wrapper-init>
-                        <input type="text"
+                        <input type="text" v-model="form.city" @input="emitData"
                             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                             id="exampleFormControlInput3" placeholder="City" />
                     </div>
@@ -61,7 +58,7 @@
                 <div class="col-span-2 md:col-span-1 text-neutral-500 dark:text-neutral-50">
                     <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">State/Province</p>
                     <div class="relative mb-4" data-te-input-wrapper-init>
-                        <input type="text"
+                        <input type="text" v-model="form.province" @input="emitData"
                             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                             id="exampleFormControlInput3" placeholder="State/Province" />
                     </div>
@@ -73,7 +70,7 @@
                 <div class="col-span-2 md:col-span-1 text-neutral-500 dark:text-neutral-50">
                     <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Zip/Postal Code</p>
                     <div class="relative mb-4" data-te-input-wrapper-init>
-                        <input type="text"
+                        <input type="text" v-model="form.postal_code" @input="emitData"
                             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                             id="exampleFormControlInput3" placeholder="Zip/Postal Code" />
                     </div>
@@ -81,7 +78,7 @@
                 <div class="col-span-2 md:col-span-1 text-neutral-500 dark:text-neutral-50">
                     <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Country</p>
                     <div class="relative mb-4" data-te-input-wrapper-init>
-                        <input type="text"
+                        <input type="text" v-model="form.country" @input="emitData"
                             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                             id="exampleFormControlInput3" placeholder="Country" />
                     </div>
@@ -95,7 +92,8 @@
             <div class="relative mb-6" data-te-input-wrapper-init>
                 <textarea
                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                    id="exampleFormControlTextarea1" rows="3" placeholder="Please list"></textarea>
+                    id="exampleFormControlTextarea1" rows="3" placeholder="Please list" v-model="form.medical_condition"
+                    @input="emitData"></textarea>
             </div>
 
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium mb-2">Are you currently taking any
@@ -103,7 +101,8 @@
             <div class="relative mb-6" data-te-input-wrapper-init>
                 <textarea
                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                    id="exampleFormControlTextarea1" rows="3" placeholder="Please list"></textarea>
+                    id="exampleFormControlTextarea1" rows="3" placeholder="Please list" v-model="form.on_medication"
+                    @input="emitData"></textarea>
             </div>
 
 
@@ -114,7 +113,8 @@
                 <div class="mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                     <input
                         class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                        type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                        type="radio" name="inlineRadioOptions" id="inlineRadio1" value="yes"
+                        @change="selectedParticipateTrial" />
                     <label
                         class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-neutral-600 dark:text-neutral-50"
                         for="inlineRadio1">Yes</label>
@@ -124,7 +124,8 @@
                 <div class="mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                     <input
                         class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                        type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                        type="radio" name="inlineRadioOptions" id="inlineRadio2" value="no"
+                        @change="selectedParticipateTrial" />
                     <label
                         class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-neutral-600 dark:text-neutral-50"
                         for="inlineRadio2">No</label>
@@ -133,7 +134,7 @@
 
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium my-2">If yes, please provide details:</p>
             <div class="relative mb-6" data-te-input-wrapper-init>
-                <textarea
+                <textarea v-model="form.details_if_participated" @input="emitData"
                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                     id="exampleFormControlTextarea1" rows="3" placeholder="Please provide more details"></textarea>
             </div>
@@ -142,15 +143,20 @@
 
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium mt-4 my-2">Which clinical trial are you
                 interested in participating in?:</p>
-            <select data-te-select-init data-te-select-size="lg">
+            <select data-te-select-init data-te-select-size="lg" v-model="form.clinical_trial_type" @change="emitData">
                 <option value="1">Covid vaccination</option>
                 <option value="2">HIV vaccination</option>
+                <option value="3">Weight loss & Obesity</option>
+                <option value="4">Diabetes</option>
+                <option value="5">Parkinson’s Disease</option>
+                <option value="6">Prostate Cancer</option>
+                <option value="7">Breast Cancer</option>
             </select>
 
 
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium mt-4 my-2">How did you hear about our
                 clinical trial?:</p>
-            <select data-te-select-init data-te-select-size="lg">
+            <select data-te-select-init data-te-select-size="lg" v-model="form.information_source" @change="emitData">
                 <option value="1">Social media</option>
                 <option value="2">Peer referral</option>
                 <option value="3">Google/Search Engine</option>
@@ -164,7 +170,7 @@
             <p class="text-neutral-700 dark:text-neutral-50 inter-medium mt-4 my-2">Why do you want to participate
                 in this clinical trial?:</p>
             <div class="relative mb-6" data-te-input-wrapper-init>
-                <textarea
+                <textarea v-model="form.reason_for_joining_trial" @input="emitData"
                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                     id="exampleFormControlTextarea1" rows="3" placeholder="Enter answer here"></textarea>
             </div>
@@ -176,7 +182,7 @@
                 <div class="mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                     <input
                         class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                        type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                        type="radio" name="inlineRadioOptions" id="inlineRadio1" value="yes" @change="understandBenefits" />
                     <label
                         class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-neutral-600 dark:text-neutral-50"
                         for="inlineRadio1">Yes</label>
@@ -186,7 +192,7 @@
                 <div class="mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                     <input
                         class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                        type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                        type="radio" name="inlineRadioOptions" id="inlineRadio2" value="no" />
                     <label
                         class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-neutral-600 dark:text-neutral-50"
                         for="inlineRadio2">No</label>
@@ -201,7 +207,7 @@
                 <div class="mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                     <input
                         class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                        type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                        type="radio" name="inlineRadioOptions" id="inlineRadio1" value="yes" @change="willingToComply" />
                     <label
                         class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-neutral-600 dark:text-neutral-50"
                         for="inlineRadio1">Yes</label>
@@ -211,7 +217,7 @@
                 <div class="mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                     <input
                         class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                        type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                        type="radio" name="inlineRadioOptions" id="inlineRadio2" value="no" @change="willingToComply" />
                     <label
                         class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-neutral-600 dark:text-neutral-50"
                         for="inlineRadio2">No</label>
@@ -235,11 +241,34 @@ import {
     initTE,
     Datepicker,
     Select,
-    Ripple
+    Ripple,
 } from "tw-elements";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 
 onMounted(() => {
     initTE({ Input, Datepicker, Select, Ripple })
 })
+
+const emit = defineEmits(['formdata'])
+const form = ref({})
+
+const emitData = () => {
+    emit('formdata', form.value)
+}
+
+const selectedParticipateTrial = (e) => {
+    console.log(e.target.value)
+    form.value.have_participated_clinical_trial = e.target.value;
+    emitData();
+}
+
+const understandBenefits = (e) => {
+    form.value.understand_benefits = e.target.value;
+    emitData();
+}
+
+const willingToComply = (e) => {
+    form.value.willing_to_comply = e.target.value;
+    emitData();
+}
 </script>

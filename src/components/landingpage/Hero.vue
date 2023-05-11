@@ -33,7 +33,7 @@ import type { TypedOptions } from "@duskmoon/vue3-typed-js";
 
 const options: TypedOptions = {
     strings: ["<h1 class='inter-semi-bold leading-snug text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-sky-300 to-sky-500'>Hello</h1>", "<h1 class='inter-semi-bold leading-snug text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-sky-300 to-sky-500'>Welcome</h1>", "<h1 class='inter-semi-bold leading-snug text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-sky-300 to-sky-500'>In-House Clinical Research with Inquest Research Centre</h1>",],
-    loop: true,
+    loop: false,
     typeSpeed: 40,
 };
 
