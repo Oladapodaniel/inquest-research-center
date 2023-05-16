@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="grid lg:grid-cols-4 gap-5 items-start">
-            <div class="col-span-3 lg:col-span-3 p-4 sm:p-8 ">
+        <div class="grid lg:grid-cols-6 xl:grid-cols-4 gap-5 items-start">
+            <div class="col-span-3 lg:col-span-4 xl:col-span-3 p-4 sm:p-6 ">
                 <!-- Search Input -->
                 <div class="relative flex flex-wrap items-stretch">
                     <span
@@ -20,7 +20,7 @@
                     userdata.firstName
                 }} <span>👋🏼</span></h1>
                 <div class="text-center mt-10" v-if="loading">
-                    <div class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    <div class="inline-block dark:text-neutral-50 h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                         role="status">
                         <span
                             class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
@@ -103,12 +103,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-10 bg-white rounded-xl shadow-[11px_4px_30px_-2px_rgba(2,16,23,0.08)] p-5"
+                <div class="mt-10 bg-white dark:bg-neutral-400 rounded-xl shadow-[11px_4px_30px_-2px_rgba(2,16,23,0.08)] p-5"
                     v-if="userdata && Object.keys(userdata).length > 0 && userdata.role !== 'user'">
                     <apexchart width="100%" height="300" type="area" :options="options" :series="series"></apexchart>
                 </div>
-                <div class="bg-[#0093DD] mt-10 rounded-xl p-6" v-if="userdata.role == 'user'">
-                    <div class="flex justify-between items-center" v-if="!userdata.enrolled">
+                <div class="bg-[#0093DD] dark:bg-neutral-600 mt-10 rounded-xl p-6" v-if="userdata.role == 'user'">
+                    <div class="flex flex-col md:flex-row md:justify-between items-center" v-if="!userdata.enrolled">
                         <div>
                             <h2 class="inter-medium text-2xl text-white">Need to continue your application?</h2>
                             <button type="button" data-te-ripple-init data-te-ripple-color="light" @click="enrol"
@@ -116,21 +116,20 @@
                                 Enrol
                             </button>
                         </div>
-                        <img src="../assets/images/user_frame.svg" />
+                        <img src="../assets/images/user_frame.svg" class="md:w-1/2" />
                     </div>
-                    <div class="flex justify-between items-center" v-else>
+                    <div class="flex flex-col md:flex-row md:justify-between items-center" v-else>
                         <div>
                             <h2 class="inter-semi-bold text-2xl text-white">Enrolment successful</h2>
                             <p class="text-white">Your enrolment is successful, you will be communicated <br />about your
                                 medical assessment.</p>
                         </div>
-                        <img src="../assets/images/enrolmentsuccessful.svg" />
+                        <img src="../assets/images/enrolmentsuccessful.svg" class="md:w-1/2" />
                     </div>
                 </div>
             </div>
 
-            <div
-                class="col-span-3 md:col-span-1 items-start bg-[#002D44] dark:bg-neutral-700  h-screen px-4 sm:px-6 sm:py-8">
+            <div class="col-span-3 lg:col-span-2 xl:col-span-1 items-start bg-[#002D44] dark:bg-neutral-700  h-screen p-4 m-6 lg:m-0 sm:px-6 sm:py-8">
                 <div class="flex justify-center">
                     <!-- Theme switcher -->
                     <div class="mr-3">
@@ -230,7 +229,7 @@
                 </div>
                 <div class="mt-12">
                     <div class="mb-3 text-white inter-medium text-center">No Upcoming meeting</div>
-                    <img src="../assets/images/calendarcuate.svg" />
+                    <img src="../assets/images/calendarcuate.svg" class="mx-auto" />
                 </div>
             </div>
         </div>

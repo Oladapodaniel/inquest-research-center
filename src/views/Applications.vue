@@ -70,26 +70,57 @@
                 <div class="col-span-4 lg:col-span-1">
                     <div class="flex justify-between dark:text-neutral-50">
                         <div class="lg:hidden inter-medium">Action</div>
-                        <div class="relative mr-3" data-te-dropdown-ref>
-                            <!-- First dropdown trigger -->
+                        <div class="relative mr-3">
+
+                            <Dropdown ref="appdropdown">
+                                <!-- trigger element -->
+                                <template #trigger>
+                                    <a class="hidden-arrow mr-4 flex items-center text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                        href="#" id="dropdownMenuButton1" role="button" data-te-dropdown-toggle-ref
+                                        aria-expanded="false">
+
+                                        <span class="[&>svg]:w-5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor"
+                                                class="w-6 h-6 text-neutral-500 dark:text-neutral-50">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </template>
+                                <!-- contents display in dropdown -->
+                                <ul class="dark:bg-neutral-700">
+                                    <li v-if="item && item.status && item.status.toLowerCase().includes('review')"
+                                        @click="acceptApplication(item)">
+                                        <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                                            href="#" data-te-dropdown-item-ref>Accept</a>
+                                    </li>
+                                    <li v-if="item && item.status && item.status.toLowerCase().includes('review')"
+                                        @click="declineApplication(item)">
+                                        <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                                            href="#" data-te-dropdown-item-ref>Decline</a>
+                                    </li>
+                                    <li @click="deleteApplication(item)">
+                                        <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                                            href="#" data-te-dropdown-item-ref>Delete</a>
+                                    </li>
+                                </ul>
+                            </Dropdown>
+                            <!-- First dropdown trigger
                             <a class="hidden-arrow mr-4 flex items-center text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
                                 href="#" id="dropdownMenuButton1" role="button" data-te-dropdown-toggle-ref
                                 aria-expanded="false">
-                                <!-- Dropdown trigger icon -->
+                                
                                 <span class="[&>svg]:w-5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor"
-                                        class="w-6 h-6 text-neutral-500 dark:text-neutral-50">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                                    </svg>
+
 
                                 </span>
                             </a>
-                            <!-- First dropdown menu -->
+                            
                             <ul class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
                                 aria-labelledby="dropdownMenuButton1" data-te-dropdown-menu-ref>
-                                <!-- First dropdown menu items -->
+                                
                                 <li v-if="item && item.status && item.status.toLowerCase().includes('review')"
                                     @click="acceptApplication(item)">
                                     <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
@@ -100,25 +131,25 @@
                                     <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
                                         href="#" data-te-dropdown-item-ref>Decline</a>
                                 </li>
-                                <!-- <li v-if="item && item.status && item.status.toLowerCase().includes('accept')" @click="setEligible(item)">
+                                 <li v-if="item && item.status && item.status.toLowerCase().includes('accept')" @click="setEligible(item)">
                                     <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
                                         href="#" data-te-dropdown-item-ref>Eligible</a>
                                 </li>
                                 <li v-if="item && item.status && item.status.toLowerCase().includes('accept')" @click="setIneligible(item)">
                                     <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
                                         href="#" data-te-dropdown-item-ref>Ineligible</a>
-                                </li> -->
+                                </li> 
                                 <li @click="deleteApplication(item)">
                                     <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
                                         href="#" data-te-dropdown-item-ref>Delete</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-5" v-if="loading">
-                <div class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                <div class="inline-block dark:text-neutral-50 h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                     role="status">
                     <span
                         class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
@@ -157,7 +188,8 @@
         </div>
     </div>
 
-    <VueModalityV3 ref="myRef" title="Jessica Jones" title-class="inter-semi-bold text-2xl" width="700px" ok-title="Done" :hide-cancel="true" @ok="closeModal" centered>
+    <VueModalityV3 ref="myRef" title="Jessica Jones" title-class="inter-semi-bold text-2xl" width="700px" ok-title="Done"
+        :hide-cancel="true" @ok="closeModal" centered>
         <div class="relative p-4">
             <div>
                 <h2 class="inter-medium text-xl">Contact Information</h2>
@@ -257,6 +289,7 @@
 import { ref } from 'vue';
 import db from "../init"
 import VueModalityV3 from 'vue-modality-v3'
+import Dropdown from 'v-dropdown'
 // import {
 //     // Dropdown,
 //     initTE,
@@ -276,6 +309,7 @@ const openMyModal = () => {
     console.log(myRef.value)
     myRef.value.open()
 }
+const appdropdown = ref(null)
 const { notify } = useNotification()
 const applications = ref([])
 const loading = ref(false)
@@ -334,6 +368,9 @@ const acceptApplication = (item) => {
         }, (error) => {
             console.error('Email failed to send', error);
         });
+
+    // Close dropdown
+    appdropdown.value.close();
 }
 
 const updateStatus = (id, status) => {
@@ -374,6 +411,9 @@ const declineApplication = (item) => {
         }, (error) => {
             console.error('Email failed to send', error);
         });
+
+    // Close dropdown
+    appdropdown.value.close();
 }
 
 const deleteApplication = (item) => {
@@ -389,6 +429,9 @@ const deleteApplication = (item) => {
     }).catch((error) => {
         console.error("Error removing document: ", error);
     });
+
+    // Close dropdown
+    appdropdown.value.close();
 }
 
 const setIneligible = (item) => {

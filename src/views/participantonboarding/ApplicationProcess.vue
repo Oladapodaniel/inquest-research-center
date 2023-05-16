@@ -63,8 +63,7 @@
         </li> -->
       </ul>
     </div>
-    <VueModalityV3 ref="submitsuccess" :hide-header="true" :hide-footer="true" width="600px" :hide-cancel="true"
-      @ok="closeModal" centered>
+    <VueModalityV3 ref="submitsuccess" :hide-header="true" @ok="$router.push('/')" width="600px" :hide-cancel="true" centered>
       <div class="relative p-4 pt-0">
         <div class="flex justify-center">
           <video width="320" height="240" autoPlay loop muted>
@@ -74,7 +73,7 @@
         <div class="inter-semi-bold text-2xl text-center text-[#01b270] mt-5">Success</div>
         <div class="text-center work-sans-medium">Your application was submitted and is under review!</div>
         <div class="text-center mt-2 text-sm mb-5">You will be notified within 2 business days regarding the status of
-          your account. If there are any issues with your application approval, we will reach out to you immediately.
+          your application. If there are any issues, we will reach out to you immediately.
         </div>
       </div>
     </VueModalityV3>
@@ -142,10 +141,8 @@ const submitApplicationForm = () => {
   full_form.value.application_date = new Date().toISOString().split('T')[0];
   db.collection("applications")
     .add(full_form.value)
-    .then(response => {
-      console.log(response, 'here')
-      submitsuccess.value.open();
-      router.push('/')
+    .then(() => {
+        submitsuccess.value.open();
     })
 }
 </script>

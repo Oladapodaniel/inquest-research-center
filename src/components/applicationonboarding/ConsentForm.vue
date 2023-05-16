@@ -149,9 +149,73 @@
 
             <button type="button"
                 class="mt-3 inline-block rounded border-2 border-primary-500 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary-500 transition duration-150 ease-in-out hover:border-primary-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-primary-600 focus:border-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
-                data-te-ripple-init data-te-toggle="modal" data-te-target="#exampleModalCenter">
+                @click="$refs.signaturedialog.open()">
                 Append signature
             </button>
+
+            <VueModalityV3 ref="signaturedialog" :hide-header="true" :hide-footer="true" width="500px" :hide-cancel="true"
+                centered>
+                <div class="relative p-4">
+                    <Vue3Signature ref="signature1" :sigOption="state.option" :w="'100%'" :h="'400px'"
+                        :disabled="state.disabled" class="example"></Vue3Signature>
+                    <div class="flex flex-wrap md:justify-end mt-3">
+                        <button type="button" @click="clear"
+                            class="ml-2 inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                            Clear
+                        </button>
+
+                        <button type="button" @click="undo"
+                            class="ml-2 inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                            Undo
+                        </button>
+
+                        <button type="button" @click="handleDisabled"
+                            class="ml-2 inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                            {{ state.disabled ? 'Enable' : 'Disable' }}
+                        </button>
+
+                        <button type="button" aria-expanded="false" data-te-ripple-init
+                            data-te-ripple-color="light" @click="downloadBase64File('',)"
+                            class="ml-2 mt-2 sm:mt-0 inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                            Download
+                        </button>
+                        <div class="relative" data-te-dropdown-ref>
+                            <!-- <Dropdown ref="dropdowntheme">
+                                
+                                <template #trigger>
+                                </template>
+                                <ul class="bg-white dark:bg-neutral-600">
+                                    <li @click="downloadBase64File('',)">
+                                        <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                                            href="#" data-te-dropdown-item-ref>Save as PNG</a>
+                                    </li>
+                                    <li @click="downloadBase64File('image/jpeg')">
+                                        <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                                            href="#" data-te-dropdown-item-ref>Save as JPEG</a>
+                                    </li>
+                                    <li @click="downloadBase64File('image/svg+xml')">
+                                        <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                                            href="#" data-te-dropdown-item-ref>Save as SVG</a>
+                                    </li>
+                                </ul>
+                            </Dropdown> -->
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 pt-4 dark:border-opacity-50">
+                        <button type="button"
+                            class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
+                            data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+                            Close
+                        </button>
+                        <button type="button" @click="save('image/jpeg')"
+                            class="ml-1 inline-block rounded bg-primary-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+                            Save changes
+                        </button>
+                    </div>
+                </div>
+            </VueModalityV3>
 
             <div data-te-modal-init
                 class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -180,64 +244,10 @@
                         </div>
 
                         <!--Modal body-->
-                        <div class="relative p-4">
-                            <Vue3Signature ref="signature1" :sigOption="state.option" :w="'467px'" :h="'400px'"
-                                :disabled="state.disabled" class="example"></Vue3Signature>
-                            <div class="flex flex-wrap justify-center mt-3">
-                                <button type="button" @click="clear"
-                                    class="ml-2 inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                                    Clear
-                                </button>
 
-                                <button type="button" @click="undo"
-                                    class="ml-2 inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                                    Undo
-                                </button>
-
-                                <button type="button" @click="handleDisabled"
-                                    class="ml-2 inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                                    {{ state.disabled ? 'Enable' : 'Disable' }}
-                                </button>
-
-                                <div class="relative" data-te-dropdown-ref>
-                                    <button type="button" id="dropdownMenuButton1" data-te-dropdown-toggle-ref
-                                        aria-expanded="false" data-te-ripple-init data-te-ripple-color="light"
-                                        class="ml-2 inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                                        Download
-                                    </button>
-                                    <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
-                                        aria-labelledby="dropdownMenuButton1" data-te-dropdown-menu-ref>
-                                        <li @click="downloadBase64File('',)">
-                                            <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                                                href="#" data-te-dropdown-item-ref>Save as PNG</a>
-                                        </li>
-                                        <li @click="downloadBase64File('image/jpeg')">
-                                            <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                                                href="#" data-te-dropdown-item-ref>Save as JPEG</a>
-                                        </li>
-                                        <li @click="downloadBase64File('image/svg+xml')">
-                                            <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                                                href="#" data-te-dropdown-item-ref>Save as SVG</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
 
                         <!--Modal footer-->
-                        <div
-                            class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                            <button type="button"
-                                class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
-                                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
-                                Close
-                            </button>
-                            <button type="button" @click="save('image/jpeg')"
-                                class="ml-1 inline-block rounded bg-primary-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
-                                Save changes
-                            </button>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -256,26 +266,27 @@
                     Back
                 </button>
                 <button @click="submit" type="button" data-te-ripple-init data-te-ripple-color="light"
-                     data-te-target="#exampleModalCenterSubmit"
+                    data-te-target="#exampleModalCenterSubmit"
                     class="inter-medium inline-block rounded bg-primary-500 px-6 pb-2 pt-2.5 text-sm font-medium leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primarydeep hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primarydeep focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
                     Submit
                 </button>
-                
+
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import VueModalityV3 from 'vue-modality-v3'
+import Dropdown from 'v-dropdown'
 // Initialization for ES Users
 import {
     Ripple,
-    initTE,
-    Dropdown
+    initTE
 } from "tw-elements";
 import { onMounted, reactive, ref } from "vue";
 const emit = defineEmits(['signature', 'submitform'])
-
+const signaturedialog = ref(null)
 const state = reactive({
     count: 0,
     option: {
@@ -291,6 +302,7 @@ const signature1 = ref(null)
 const save = (t) => {
     signature.value = signature1.value.save(t)
     emit('signature', signature.value)
+    signaturedialog.value.hide();
 }
 
 const clear = () => {
@@ -331,7 +343,7 @@ const handleDisabled = () => {
     state.disabled = !state.disabled
 }
 onMounted(() => {
-    initTE({ Ripple, Dropdown });
+    initTE({ Ripple });
 })
 
 const submit = () => {
