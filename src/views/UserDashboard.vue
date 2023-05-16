@@ -103,7 +103,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-10 bg-white dark:bg-neutral-400 rounded-xl shadow-[11px_4px_30px_-2px_rgba(2,16,23,0.08)] p-5"
+                <div class="mt-10 bg-white dark:bg-neutral-600 rounded-xl shadow-[11px_4px_30px_-2px_rgba(2,16,23,0.08)] p-5"
                     v-if="userdata && Object.keys(userdata).length > 0 && userdata.role !== 'user'">
                     <apexchart width="100%" height="300" type="area" :options="options" :series="series"></apexchart>
                 </div>
