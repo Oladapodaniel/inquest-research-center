@@ -63,47 +63,21 @@
         </li> -->
       </ul>
     </div>
-    <button type="button" data-te-ripple-init data-te-ripple-color="light" data-te-toggle="modal"
-      data-te-target="#exampleModalCenterSubmit" ref="submitsuccess"
-      class="hidden inter-medium inline-block rounded bg-primary-500 px-6 pb-2 pt-2.5 text-sm font-medium leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primarydeep hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primarydeep focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
-      Submit
-    </button>
-    <div data-te-modal-init
-      class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-      id="exampleModalCenterSubmit" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true"
-      role="dialog">
-      <div data-te-modal-dialog-ref
-        class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
-        <div
-          class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-white">
-          <div class="flex flex-shrink-0 items-center justify-end rounded-t-xl p-4 dark:border-opacity-50">
-            <!--Close button-->
-            <button type="button"
-              class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-              data-te-modal-dismiss aria-label="Close">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="h-6 w-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          <!--Modal body-->
-          <div class="relative p-4 pt-0">
-            <div class="flex justify-center">
-              <video width="320" height="240" autoPlay loop muted>
-                <source src="../../assets/images/screenrecording.mp4">
-              </video>
-            </div>
-            <div class="inter-semi-bold text-2xl text-center text-[#01b270] mt-5">Success</div>
-            <div class="text-center work-sans-medium">Your application was submitted and is under review!</div>
-            <div class="text-center mt-2 text-sm mb-5">You will be notified within 2 business days regarding the status of
-              your account. If there are any issues with your application approval, we will reach out to you immediately.
-            </div>
-          </div>
+    <VueModalityV3 ref="submitsuccess" :hide-header="true" :hide-footer="true" width="600px" :hide-cancel="true"
+      @ok="closeModal" centered>
+      <div class="relative p-4 pt-0">
+        <div class="flex justify-center">
+          <video width="320" height="240" autoPlay loop muted>
+            <source src="../../assets/images/screenrecording.mp4">
+          </video>
+        </div>
+        <div class="inter-semi-bold text-2xl text-center text-[#01b270] mt-5">Success</div>
+        <div class="text-center work-sans-medium">Your application was submitted and is under review!</div>
+        <div class="text-center mt-2 text-sm mb-5">You will be notified within 2 business days regarding the status of
+          your account. If there are any issues with your application approval, we will reach out to you immediately.
         </div>
       </div>
-    </div>
+    </VueModalityV3>
   </div>
 </template>
 
@@ -117,6 +91,7 @@ import { useRouter } from "vue-router";
 import ApplicationForm from "../../components/applicationonboarding/ApplicationForm.vue";
 import ConsentForm from "../../components/applicationonboarding/ConsentForm.vue"
 import db from "../../init"
+import VueModalityV3 from 'vue-modality-v3'
 onMounted(() => {
   initTE({ initTE, Stepper })
 })
@@ -169,7 +144,7 @@ const submitApplicationForm = () => {
     .add(full_form.value)
     .then(response => {
       console.log(response, 'here')
-      submitsuccess.value.click();
+      submitsuccess.value.open();
       router.push('/')
     })
 }

@@ -243,6 +243,9 @@
         <div>rle: {{ userdata.role }}</div>
 
     </div> -->
+    <VueModalityV3 ref="enrolsuccess" success title="Success" :hide-cancel="true" centered  @ok="$refs.enrolsuccess.hide()">
+        <div>You have enrolled for the clinical trial successfully 🎉</div>
+    </VueModalityV3>
 </template>
 
 <script setup>
@@ -250,6 +253,7 @@ import { onMounted, ref, computed } from 'vue';
 import db from '../init'
 import ThemeSwitcher from '../components/ThemeSwither.vue'
 import { useNotification } from "@kyvg/vue3-notification";
+import VueModalityV3 from 'vue-modality-v3'
 import {
     Dropdown,
     initTE,
@@ -358,6 +362,7 @@ const scheduleDesc = ref([
 ])
 const groupedValue = ref({})
 const groupedEnrolmentValue = ref({})
+const enrolsuccess = ref(null)
 const groupDate = () => {
     const data = applications.value.map(i => ({ date: i.application_date }))
     console.log(data,)
@@ -418,13 +423,13 @@ const enrol = () => {
                 });
             } else {
                 userdata.value.enrolled = true
-                notify({
-                    type: 'success',
-                    title: "Enrolment successful 🎉",
-                    text: "You have enrolled for the clinical trial successfully, we will get to you for your medical assessment",
-                    duration: 5000
-                });
-
+                // notify({
+                //     type: 'success',
+                //     title: "Enrolment successful 🎉",
+                //     text: "You have enrolled for the clinical trial successfully, we will get to you for your medical assessment",
+                //     duration: 5000
+                // });
+                enrolsuccess.value.open()
                 // Set the enrolment date
                 db.collection("applications").doc(userapplicationdata.id)
                     .update({

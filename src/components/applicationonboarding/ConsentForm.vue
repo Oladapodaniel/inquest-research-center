@@ -269,7 +269,6 @@
 <script setup>
 // Initialization for ES Users
 import {
-    Modal,
     Ripple,
     initTE,
     Dropdown
@@ -332,7 +331,7 @@ const handleDisabled = () => {
     state.disabled = !state.disabled
 }
 onMounted(() => {
-    initTE({ Modal, Ripple, Dropdown });
+    initTE({ Ripple, Dropdown });
 })
 
 const submit = () => {

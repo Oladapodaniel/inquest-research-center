@@ -4,7 +4,7 @@
         <div class="mt-10">
             <div class="hidden lg:block">
                 <div
-                    class="grid lg:grid-cols-6 items-center bg-white dark:bg-neutral-500 h-[50px] px-5 rounded-[6px] shadow-[2px_4px_9px_rgba(2,16,23,0.05)]">
+                    class="grid lg:grid-cols-6 items-center bg-white dark:bg-neutral-600 h-[50px] px-5 rounded-[6px] shadow-[2px_4px_9px_rgba(2,16,23,0.05)]">
                     <div class="col-span-4 lg:col-span-1 inter-medium dark:text-neutral-50">
                         Name
                     </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-6 items-center bg-white dark:bg-neutral-500 px-5 lg:h-[50px] rounded-[6px] shadow-[2px_4px_9px_rgba(2,16,23,0.05)] mt-5"
+            <div class="grid lg:grid-cols-6 items-center bg-white dark:bg-neutral-600 px-5 lg:h-[50px] rounded-[6px] shadow-[2px_4px_9px_rgba(2,16,23,0.05)] mt-5"
                 v-for="(item, index) in applications" :keys="index">
                 <div class="col-span-4 lg:col-span-1">
                     <div class="flex justify-between dark:text-neutral-50">
@@ -49,18 +49,19 @@
                 <div class="col-span-4 lg:col-span-1">
                     <div class="flex justify-between dark:text-neutral-50">
                         <div class="lg:hidden inter-medium">Status</div>
-                        
+
                         <span
-                            :class="{ 'bg-success-100 text-success-700 font-leading' : item.status.includes('accepted'), 'bg-warning-100 text-warning-700 font-leading' : item.status.includes('review'), 'bg-danger-100 text-danger-600 font-leading' : item.status.includes('declined') }" class="work-sans-medium inline-block whitespace-nowrap rounded-[0.27rem] px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-success-700">
+                            :class="{ 'bg-success-100 text-success-700 font-leading': item.status.includes('accepted'), 'bg-warning-100 text-warning-700 font-leading': item.status.includes('review'), 'bg-danger-100 text-danger-600 font-leading': item.status.includes('declined') }"
+                            class="work-sans-medium inline-block whitespace-nowrap rounded-[0.27rem] px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-success-700">
                             {{ item.status }}
                         </span>
                     </div>
                 </div>
                 <div class="col-span-4 lg:col-span-1">
                     <div class="flex justify-between dark:text-neutral-50">
+                        <!-- data-te-toggle="modal" data-te-target="#exampleModalLg" data-te-ripple-init -->
                         <div class="lg:hidden inter-medium">Review</div>
-                        <button type="button" data-te-toggle="modal" data-te-target="#exampleModalLg" data-te-ripple-init
-                            data-te-ripple-color="light"
+                        <button type="button" @click="openMyModal"
                             class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                             Review
                         </button>
@@ -151,57 +152,115 @@
                     </button>
                 </div>
 
-                <!--Modal body-->
-                <div class="relative p-4">
-                    <div>
-                        <p class="inter-medium">Full name</p>
-                        <p class="mt-1">lsfilsjfilpfdadap qeqefeqdaniel</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Phone</p>
-                        <p class="mt-1">3485903854398</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Email</p>
-                        <p class="mt-1">ajnrklvnrf@esrwgjenr.cm</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Date f birth</p>
-                        <p class="mt-1">43, amy, 4040</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Address</p>
-                        <p class="mt-1">43, 4wergwergh wgrjnkerg wrj wrjnjwj wejk0</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">City</p>
-                        <p class="mt-1">jnjwj wejk0</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">State/Prvine</p>
-                        <p class="mt-1">jnjwj wewse wewejk0</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Zip pstal c0de</p>
-                        <p class="mt-1">100220202</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Cuntry</p>
-                        <p class="mt-1">rhfjf, fjfjf fjfjfj</p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
+
+    <VueModalityV3 ref="myRef" title="Jessica Jones" title-class="inter-semi-bold text-2xl" width="700px" ok-title="Done" :hide-cancel="true" @ok="closeModal" centered>
+        <div class="relative p-4">
+            <div>
+                <h2 class="inter-medium text-xl">Contact Information</h2>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Phone</div>
+                    <div class="text-neutral-500 work-sans-medium">7857878678</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Email</div>
+                    <div class="text-neutral-500 work-sans-medium">oladapodaniel10@gmail.com</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Address</div>
+                    <div class="text-neutral-500 work-sans-medium">32, gng gngnglff</div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <h2 class="inter-medium text-xl">General Information</h2>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Date of birth</div>
+                    <div class="text-neutral-500 work-sans-medium">28th May</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Email</div>
+                    <div class="text-neutral-500 work-sans-medium">oladapodaniel10@gmail.com</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Address</div>
+                    <div class="text-neutral-500 work-sans-medium">32, gng gngnglff</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">City</div>
+                    <div class="text-neutral-500 work-sans-medium">3sfbsfb</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">State/Province</div>
+                    <div class="text-neutral-500 work-sans-medium">3sfbsfb</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Zip/Postal code</div>
+                    <div class="text-neutral-500 work-sans-medium">3sfbsfb</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Country</div>
+                    <div class="text-neutral-500 work-sans-medium">3sx xxfbsfb</div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <h2 class="inter-medium text-xl">Medical Information</h2>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Do you have any medical condition?</div>
+                    <div class="text-neutral-500 work-sans-medium">28tsdfvsf sfbsfb,s rbsfh May</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Are you currently taking any medication?</div>
+                    <div class="text-neutral-500 work-sans-medium">28tsdfvsf sfbsfb,s rb ,f ffs,f fsfsfh May</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Have you participated in a clinical trial</div>
+                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Please provide details</div>
+                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Which clinical trial are you interested in participating in?</div>
+                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">How did you hear about our clinical trial?</div>
+                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Why do you want to participate in this clinical trial?</div>
+                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Do you understand the risks and benefits of participating in a clinical trial?
+                    </div>
+                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                </div>
+                <div class="py-3 flex justify-between border-b">
+                    <div class="inter-medium">Are you willing to comply with all requirements of the clinical trial
+                        protocol?</div>
+                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                </div>
+                <div>
+                    <img src="" alt="Signature" />
+                </div>
+            </div>
+        </div>
+    </VueModalityV3>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import db from "../init"
+import VueModalityV3 from 'vue-modality-v3'
 // import {
 //     // Dropdown,
 //     initTE,
-    
+
 //     Ripple
 // } from "tw-elements";
 import emailjs from 'emailjs-com';
@@ -212,9 +271,15 @@ import { useNotification } from "@kyvg/vue3-notification";
 //     initTE({   Ripple });
 // })
 // Dropdown
+const myRef = ref(null)
+const openMyModal = () => {
+    console.log(myRef.value)
+    myRef.value.open()
+}
 const { notify } = useNotification()
 const applications = ref([])
 const loading = ref(false)
+// const reviewModal = ref(false)
 // Status | == > Accepted, Declined, In review, Eligible, Ineligible
 
 const getAllApplications = () => {
@@ -349,6 +414,10 @@ const setEligible = (item) => {
     //         console.log(res)
     //     })
     //     .catch (err => console.log(err))
+}
+
+const closeModal = () => {
+    myRef.value.hide()
 }
 </script>
 
