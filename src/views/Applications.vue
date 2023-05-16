@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="p-4 sm:p-8">
         <h1 class="inter-semi-bold text-4xl dark:text-neutral-50">Applications</h1>
         <div class="mt-10">
             <div class="hidden lg:block">
@@ -51,7 +51,7 @@
                         <div class="lg:hidden inter-medium">Status</div>
                         
                         <span
-                            :class="{ 'bg-success-100 text-success-700 font-leading' : item.status.includes('accepted'), 'bg-warning-100 text-warning-700 font-leading' : item.status.includes('review'), 'bg-danger-100 text-danger-700 font-leading' : item.status.includes('declined'), 'bg-danger-100 text-danger-700 font-leading' : item.status == 'ineligible', }" class="work-sans-medium inline-block whitespace-nowrap rounded-[0.27rem] px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-success-700">
+                            :class="{ 'bg-success-100 text-success-700 font-leading' : item.status.includes('accepted'), 'bg-warning-100 text-warning-700 font-leading' : item.status.includes('review'), 'bg-danger-100 text-danger-600 font-leading' : item.status.includes('declined') }" class="work-sans-medium inline-block whitespace-nowrap rounded-[0.27rem] px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-success-700">
                             {{ item.status }}
                         </span>
                     </div>

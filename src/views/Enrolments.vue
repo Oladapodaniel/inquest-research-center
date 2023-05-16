@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="p-4 sm:p-8">
         <h1 class="inter-semi-bold text-4xl">Enrolments</h1>
         <div class="mt-5">
             <div class="hidden lg:block">
                 <div
-                    class="grid lg:grid-cols-5 items-center bg-white dark:bg-neutral-500 h-[50px] px-5 rounded-[6px] shadow-[2px_4px_9px_rgba(2,16,23,0.05)]">
+                    class="grid lg:grid-cols-4 items-center bg-white dark:bg-neutral-500 h-[50px] px-5 rounded-[6px] shadow-[2px_4px_9px_rgba(2,16,23,0.05)]">
                     <div class="col-span-4 lg:col-span-1 inter-medium">
                         Name
                     </div>
@@ -14,9 +14,9 @@
                     <div class="col-span-4 lg:col-span-1 inter-medium">
                         Email
                     </div>
-                    <div class="col-span-4 lg:col-span-1 inter-medium">
+                    <!-- <div class="col-span-4 lg:col-span-1 inter-medium">
                         Status
-                    </div>
+                    </div> -->
                     <!-- <div class="col-span-4 lg:col-span-1 inter-medium">
                         Review
                     </div> -->
@@ -26,18 +26,18 @@
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-5 items-center bg-white dark:bg-neutral-500 px-5 lg:h-[50px] rounded-[6px] shadow-[2px_4px_9px_rgba(2,16,23,0.05)] mt-5"
-                v-for="(item, index) in applications" :keys="index">
+            <div class="grid lg:grid-cols-4 items-center bg-white dark:bg-neutral-500 px-5 lg:h-[50px] rounded-[6px] shadow-[2px_4px_9px_rgba(2,16,23,0.05)] mt-5"
+                v-for="(item, index) in enrolments" :keys="index">
                 <div class="col-span-4 lg:col-span-1">
                     <div class="flex justify-between">
                         <div class="lg:hidden inter-medium">Name</div>
-                        <div>{{ item.name }}</div>
+                        <div>{{ item.full_name }}</div>
                     </div>
                 </div>
                 <div class="col-span-4 lg:col-span-1">
                     <div class="flex justify-between">
                         <div class="lg:hidden inter-medium">Phone</div>
-                        {{ item.phone }}
+                        {{ item.phone_number }}
                     </div>
                 </div>
                 <div class="col-span-4 lg:col-span-1">
@@ -46,12 +46,12 @@
                         {{ item.email }}
                     </div>
                 </div>
-                <div class="col-span-4 lg:col-span-1">
+                <!-- <div class="col-span-4 lg:col-span-1">
                     <div class="flex justify-between">
                         <div class="lg:hidden inter-medium">Status</div>
                         {{ item.status }}
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="col-span-4 lg:col-span-1">
                     <div class="flex justify-between">
                         <div class="lg:hidden inter-medium">Review</div>
@@ -106,72 +106,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div data-te-modal-init
-        class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-        id="exampleModalLg" tabindex="-1" aria-labelledby="exampleModalLgLabel" aria-modal="true" role="dialog">
-        <div data-te-modal-dialog-ref
-            class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px] min-[992px]:max-w-[800px]">
-            <div
-                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
-                <div
-                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                    <!--Modal title-->
-                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
-                        id="exampleModalLgLabel">
-                        Applicant data
-                    </h5>
-                    <!--Close button-->
-                    <button type="button"
-                        class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-                        data-te-modal-dismiss aria-label="Close">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-
-                <!--Modal body-->
-                <div class="relative p-4">
-                    <div>
-                        <p class="inter-medium">Full name</p>
-                        <p class="mt-1">lsfilsjfilpfdadap qeqefeqdaniel</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Phone</p>
-                        <p class="mt-1">3485903854398</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Email</p>
-                        <p class="mt-1">ajnrklvnrf@esrwgjenr.cm</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Date f birth</p>
-                        <p class="mt-1">43, amy, 4040</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Address</p>
-                        <p class="mt-1">43, 4wergwergh wgrjnkerg wrj wrjnjwj wejk0</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">City</p>
-                        <p class="mt-1">jnjwj wejk0</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">State/Prvine</p>
-                        <p class="mt-1">jnjwj wewse wewejk0</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Zip pstal c0de</p>
-                        <p class="mt-1">100220202</p>
-                    </div>
-                    <div class="mt-3">
-                        <p class="inter-medium">Cuntry</p>
-                        <p class="mt-1">rhfjf, fjfjf fjfjfj</p>
-                    </div>
+            <div class="text-center mt-5" v-if="loading">
+                <div class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    role="status">
+                    <span
+                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
                 </div>
             </div>
         </div>
@@ -186,55 +125,38 @@ import {
     Modal,
     Ripple
 } from "tw-elements";
+import db from "../init"
 
 onMounted(() => {
     initTE({ Dropdown, Modal, Ripple });
 })
 
-const applications = ref([
-    {
-        name: 'dapo',
-        phone: '2554r22352',
-        email: 'oladapodaniel10@gmail.om',
-        status: 'accepted',
-    },
-    {
-        name: 'dapo',
-        phone: '2554r22352',
-        email: 'oladapo10@gmail.om',
-        status: 'in review',
-    },
-    {
-        name: 'dapo',
-        phone: '2554r22352',
-        email: 'oladapodaniel10@gmail.om',
-        status: 'declined',
-    },
-    {
-        name: 'dapo',
-        phone: '2554r22352',
-        email: 'oladapodaniel10@.om',
-        status: 'accepted',
-    },
-    {
-        name: 'dapo',
-        phone: '2554r22352',
-        email: 'oladapodaniel10@gmail.om',
-        status: 'Eligible',
-    },
-    {
-        name: 'dapo',
-        phone: '2554r22352',
-        email: 'oladapodaniel10@gmail.om',
-        status: 'Ineligible',
-    },
-    {
-        name: 'dapo',
-        phone: '2554r22352',
-        email: 'oladapodanieail.om',
-        status: 'Eligible',
-    },
-])
+const loading = ref(true)
+const enrolments = ref([])
+const getAllEnrolments = () => {
+    loading.value = true
+    db.collection('enrolments')
+        .get()
+        .then(snapshot => {
+            snapshot.forEach(doc => {
+                console.log(doc.data())
+
+                let documents = {
+                    ...doc.data(),
+                    id: doc.id
+                }
+                enrolments.value.push(documents)
+                console.log(documents)
+            })
+            loading.value = false
+        })
+        .catch((error) => {
+            loading.value = false
+            console.log("Error getting document:", error);
+        });
+
+}
+getAllEnrolments();
 </script>
 
 <style scoped></style>

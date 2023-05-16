@@ -2,10 +2,10 @@
 <div>
     <Header />
     <Hero />
-    <Sponsor />
     <Steps />
-    <Testimonial />
+    <Sponsor />
     <Leadership />
+    <Testimonial />
     <Footer />
 </div>
 </template>

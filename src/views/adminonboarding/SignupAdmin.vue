@@ -4,7 +4,7 @@
             <div
                 class="col-span-2 md:col-span-1 bg-bluetintdeep dark:bg-neutral-700 text-neutral-500 dark:text-neutral-50 h-screen hidden md:block">
                 <div class="flex items-center h-screen">
-                    <img src="../../assets/images/Sign-up-pana.svg" class="m-auto w-[70%]" />
+                    <img src="../../assets/images/signuppana.svg" class="m-auto w-[70%]" />
                 </div>
             </div>
             <div class="col-span-2 md:col-span-1 dark:bg-neutral-700 dark:text-neutral-50 h-screen">

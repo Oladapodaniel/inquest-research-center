@@ -113,6 +113,7 @@ import {
   Stepper,
 } from "tw-elements";
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 import ApplicationForm from "../../components/applicationonboarding/ApplicationForm.vue";
 import ConsentForm from "../../components/applicationonboarding/ConsentForm.vue"
 import db from "../../init"
@@ -120,6 +121,7 @@ onMounted(() => {
   initTE({ initTE, Stepper })
 })
 
+const router = useRouter()
 const steponeref = ref(null)
 const steptworef = ref(null)
 const full_form = ref({})
@@ -162,11 +164,13 @@ const setSignature = (payload) => {
 const submitApplicationForm = () => {
   console.log(full_form.value)
   full_form.value.status = "in review"
+  full_form.value.application_date = new Date().toISOString().split('T')[0];
   db.collection("applications")
     .add(full_form.value)
     .then(response => {
       console.log(response, 'here')
       submitsuccess.value.click();
+      router.push('/')
     })
 }
 </script>

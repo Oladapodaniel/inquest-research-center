@@ -1,7 +1,7 @@
 <template>
     <div class="bg-bluetint dark:bg-neutral-700">
         <div class="md:container px-5 py-12">
-            <h2 class="inter-medium text-center text-2xl md:text-4xl text-primary-500 dark:text-primary-300">Steps to enrol</h2>
+            <h2 class="inter-semi-bold text-center text-2xl md:text-5xl text-primary-500 dark:text-primary-300">Steps to enrol</h2>
             <!-- <p class="text-neutral-500 dark:text-neutral-50 mt-4 text-center">sed iusto diam dolore et veniam, Lorem ea
                 molestie duis elit,<br />
                 nibh iriure exerci enim at suscipit autem aliquam ullamcorper vulputate aliquip facilisis volutpat.
