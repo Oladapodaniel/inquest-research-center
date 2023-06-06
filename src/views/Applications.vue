@@ -61,7 +61,7 @@
                     <div class="flex justify-between dark:text-neutral-50">
                         <!-- data-te-toggle="modal" data-te-target="#exampleModalLg" data-te-ripple-init -->
                         <div class="lg:hidden inter-medium">Review</div>
-                        <button type="button" @click="openMyModal"
+                        <button type="button" @click="reviewApplicant(item)"
                             class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                             Review
                         </button>
@@ -195,90 +195,83 @@
                 <h2 class="inter-medium text-xl">Contact Information</h2>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Phone</div>
-                    <div class="text-neutral-500 work-sans-medium">7857878678</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.phone_number }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Email</div>
-                    <div class="text-neutral-500 work-sans-medium">oladapodaniel10@gmail.com</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.email }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Address</div>
-                    <div class="text-neutral-500 work-sans-medium">32, gng gngnglff</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.address }}</div>
                 </div>
             </div>
             <div class="mt-3">
                 <h2 class="inter-medium text-xl">General Information</h2>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Date of birth</div>
-                    <div class="text-neutral-500 work-sans-medium">28th May</div>
-                </div>
-                <div class="py-3 flex justify-between border-b">
-                    <div class="inter-medium">Email</div>
-                    <div class="text-neutral-500 work-sans-medium">oladapodaniel10@gmail.com</div>
-                </div>
-                <div class="py-3 flex justify-between border-b">
-                    <div class="inter-medium">Address</div>
-                    <div class="text-neutral-500 work-sans-medium">32, gng gngnglff</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.date_of_birth }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">City</div>
-                    <div class="text-neutral-500 work-sans-medium">3sfbsfb</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.city }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">State/Province</div>
-                    <div class="text-neutral-500 work-sans-medium">3sfbsfb</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.province }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Zip/Postal code</div>
-                    <div class="text-neutral-500 work-sans-medium">3sfbsfb</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.postal_code }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Country</div>
-                    <div class="text-neutral-500 work-sans-medium">3sx xxfbsfb</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.country }}</div>
                 </div>
             </div>
             <div class="mt-3">
                 <h2 class="inter-medium text-xl">Medical Information</h2>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Do you have any medical condition?</div>
-                    <div class="text-neutral-500 work-sans-medium">28tsdfvsf sfbsfb,s rbsfh May</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.medical_condition }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Are you currently taking any medication?</div>
-                    <div class="text-neutral-500 work-sans-medium">28tsdfvsf sfbsfb,s rb ,f ffs,f fsfsfh May</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.on_medication }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Have you participated in a clinical trial</div>
-                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.have_participated_clinical_trial }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Please provide details</div>
-                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.details_if_participated }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Which clinical trial are you interested in participating in?</div>
-                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.clinical_trial_type }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">How did you hear about our clinical trial?</div>
-                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.information_source }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Why do you want to participate in this clinical trial?</div>
-                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.reason_for_joining_trial }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Do you understand the risks and benefits of participating in a clinical trial?
                     </div>
-                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.understand_benefits }}</div>
                 </div>
                 <div class="py-3 flex justify-between border-b">
                     <div class="inter-medium">Are you willing to comply with all requirements of the clinical trial
                         protocol?</div>
-                    <div class="text-neutral-500 work-sans-medium">28ty</div>
+                    <div class="text-neutral-500 work-sans-medium">{{ selectedApplicant.willing_to_comply }}</div>
                 </div>
-                <div>
-                    <img src="" alt="Signature" />
+                <div class="flex justify-between items-center mt-4">
+                    <div class="inter-medium">Signature</div>
+                    <img :src="selectedApplicant.signature" width="200" alt="Signature" />
                 </div>
             </div>
         </div>
@@ -290,31 +283,22 @@ import { ref } from 'vue';
 import db from "../init"
 import VueModalityV3 from 'vue-modality-v3'
 import Dropdown from 'v-dropdown'
-// import {
-//     // Dropdown,
-//     initTE,
-
-//     Ripple
-// } from "tw-elements";
-import emailjs from 'emailjs-com';
+import emailservice from "../services/emailService"
 import { useNotification } from "@kyvg/vue3-notification";
 
-// onMounted(() => {
-//     console.log('reaching')
-//     initTE({   Ripple });
-// })
-// Dropdown
+
 const myRef = ref(null)
-const openMyModal = () => {
+const selectedApplicant = ref({})
+const reviewApplicant = (item) => {
     console.log(myRef.value)
     myRef.value.open()
+    selectedApplicant.value = item
 }
 const appdropdown = ref(null)
 const { notify } = useNotification()
 const applications = ref([])
 const loading = ref(false)
-// const reviewModal = ref(false)
-// Status | == > Accepted, Declined, In review, Eligible, Ineligible
+
 
 const getAllApplications = () => {
     loading.value = true
@@ -342,32 +326,47 @@ const getAllApplications = () => {
 getAllApplications();
 
 const acceptApplication = (item) => {
-    // Send the emial and update the status to accepted
+    // Send the email and update the status to accepted
 
-    const serviceID = 'service_g6u3t95';
-    const templateID = 'template_y7y3elt';
-    const userID = '6nfjGI-Q5L8U97Jz6';
-    const message = "Thank you for submitting your application, It is our delight to inform you that your application has been accepted, You will need to submit an enrolment form to take your medical assessment, to do that, sign up to the clinical trial portal for participant with this link https://inquest-research-center.vercel.app/signup. Goodluck"
 
-    const params = {
-        to_name: item.full_name,
-        from_name: "Inquest Research Center",
-        reply_to: item.email,
-        message: message,
-    };
-
-    emailjs.send(serviceID, templateID, params, userID)
-        .then(() => {
-            updateStatus(item.id, 'accepted')
+    const message = "Thank you for submitting your application, It is our delight to inform you that your application has been accepted.\n\nYou will need to submit an enrolment form to take your medical assessment, to do that, sign up to the clinical trial portal for participant with this link:\nhttps://inquest-research-center.vercel.app/signup. \n\nGoodluck.\nInquest Research Center"
+    emailservice.sendEMail(item, message).then(() => {
+        updateStatus(item.id, 'accepted')
             notify({
                 type: 'success',
                 title: "Participant accepted",
                 text: 'An email has been sent to the participant for further information on next steps',
                 duration: 10000
             });
-        }, (error) => {
-            console.error('Email failed to send', error);
-        });
+    })
+    .catch((err) => {
+        console.log(err, 'Failed to send email')
+    })
+
+    // const serviceID = 'service_g6u3t95';
+    // const templateID = 'template_y7y3elt';
+    // const userID = '6nfjGI-Q5L8U97Jz6';
+    // const message = "Thank you for submitting your application, It is our delight to inform you that your application has been accepted, You will need to submit an enrolment form to take your medical assessment, to do that, sign up to the clinical trial portal for participant with this link https://inquest-research-center.vercel.app/signup. Goodluck"
+
+    // const params = {
+    //     to_name: item.full_name,
+    //     from_name: "Inquest Research Center",
+    //     reply_to: item.email,
+    //     message: message,
+    // };
+
+    // emailjs.send(serviceID, templateID, params, userID)
+    //     .then(() => {
+    //         updateStatus(item.id, 'accepted')
+    //         notify({
+    //             type: 'success',
+    //             title: "Participant accepted",
+    //             text: 'An email has been sent to the participant for further information on next steps',
+    //             duration: 10000
+    //         });
+    //     }, (error) => {
+    //         console.error('Email failed to send', error);
+    //     });
 
     // Close dropdown
     appdropdown.value.close();
@@ -387,30 +386,43 @@ const updateStatus = (id, status) => {
 }
 
 const declineApplication = (item) => {
-    const serviceID = 'service_g6u3t95';
-    const templateID = 'template_y7y3elt';
-    const userID = '6nfjGI-Q5L8U97Jz6';
-    const message = "Thank you for showing your interest, We are sorry to inform you that we will not be moving forward with your application."
-
-    const params = {
-        to_name: item.full_name,
-        from_name: "Inquest Research Center",
-        reply_to: item.email,
-        message: message,
-    };
-
-    emailjs.send(serviceID, templateID, params, userID)
-        .then(() => {
-            updateStatus(item.id, 'declined')
+    const message = "We are sorry to inform you that we will not be moving forward with your application.\n\nThank you for showing your interest.\n\nInquest Research Center."
+    emailservice.sendEMail(item, message).then(() => {
+        updateStatus(item.id, 'declined')
             notify({
                 type: 'warning',
                 title: "Application declined",
                 text: 'An email has been sent to the participant informing about the application status',
                 duration: 10000
             });
-        }, (error) => {
-            console.error('Email failed to send', error);
-        });
+    })
+    .catch((err) => {
+        console.log(err, 'Failed to send email')
+    })
+    // const serviceID = 'service_g6u3t95';
+    // const templateID = 'template_y7y3elt';
+    // const userID = '6nfjGI-Q5L8U97Jz6';
+    // const message = "Thank you for showing your interest, We are sorry to inform you that we will not be moving forward with your application."
+
+    // const params = {
+    //     to_name: item.full_name,
+    //     from_name: "Inquest Research Center",
+    //     reply_to: item.email,
+    //     message: message,
+    // };
+
+    // emailjs.send(serviceID, templateID, params, userID)
+    //     .then(() => {
+    //         updateStatus(item.id, 'declined')
+    //         notify({
+    //             type: 'warning',
+    //             title: "Application declined",
+    //             text: 'An email has been sent to the participant informing about the application status',
+    //             duration: 10000
+    //         });
+    //     }, (error) => {
+    //         console.error('Email failed to send', error);
+    //     });
 
     // Close dropdown
     appdropdown.value.close();

@@ -91,7 +91,7 @@
 </template>
 
 <script setup>
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import { useRouter } from "vue-router"
 import db from '../../init'
 import { useNotification } from "@kyvg/vue3-notification";
@@ -113,30 +113,61 @@ onMounted(() => {
     initTE({ Input, Select, Ripple });
 })
 
-const signupUser = () => {
-    firebase
-        .auth()
-        .createUserWithEmailAndPassword(user.email, user.password)
-        .then((res) => {
-            notify({
-                type: 'success',
-                title: "Account created successfully 🎉",
-                text: "You have been logged in!",
-                duration: 5000
-            });
-            console.log(res)
-            localStorage.setItem('token', res.user._lat)
-            saveUserDetails(res.user.uid)
+const applications = ref([])
+const getAllApplications = () => {
+    db.collection('applications')
+        .get()
+        .then(snapshot => {
+            snapshot.forEach(doc => {
+                console.log(doc.id)
 
+                let documents = {
+                    ...doc.data(),
+                    id: doc.id
+                }
+                applications.value.push(documents)
+            })
         })
-        .catch(error => {
-            notify({
-                type: 'error',
-                title: "Error creating account",
-                text: error.message,
-                duration: 5000
-            });
+        .catch(() => {
         });
+
+}
+getAllApplications();
+
+const signupUser = () => {
+    const userdata = applications.value.find(i => i.email == user.email)
+    if (!userdata || (userdata && userdata.status !== 'accepted')) {
+        notify({
+            type: 'warn',
+            title: "Oops sorry",
+            text: "We discovered that you have not submitted your application or it had not been approved, when it is approved, you can signup here. If it has been approved, make sure you use the email address you used when filling the application form to create an account here.",
+            duration: 20000
+        });
+    } else {
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(user.email, user.password)
+            .then((res) => {
+                notify({
+                    type: 'success',
+                    title: "Account created successfully 🎉",
+                    text: "You have been logged in!",
+                    duration: 5000
+                });
+                console.log(res)
+                localStorage.setItem('token', res.user._lat)
+                saveUserDetails(res.user.uid)
+
+            })
+            .catch(error => {
+                notify({
+                    type: 'error',
+                    title: "Error creating account",
+                    text: error.message,
+                    duration: 5000
+                });
+            })
+    }
 }
 
 const saveUserDetails = (uid) => {
@@ -148,7 +179,7 @@ const saveUserDetails = (uid) => {
 
     console.log(user)
     db.collection("users").doc(uid).collection('biodata')
-    .add(user)
+        .add(user)
         .then(response => {
             console.log(response, 'here')
             router.push('/tenant')
