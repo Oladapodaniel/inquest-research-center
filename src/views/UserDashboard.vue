@@ -663,7 +663,6 @@ const createSchedule = () => {
             // Send email to recipient
             const message = `'Hello ${schedule.participant.full_name},\n\nA meeting has been scheduled with you. Detail below.\n\nDate: ${schedule.date}.\nTime: ${schedule.time}.\nMeeting link: ${schedule.meeting_link}.\n\nEnsure that you join on time to avoid cancellation of the meeting.\nThanks.\n\nInquest Research Center.`
             emailservice.sendEMail(schedule.participant, message).then((response) => {
-                console.log(response)
                 schedule = new Object();
             })
         })
